@@ -4,6 +4,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
+# import in other script here?
+
 dataframe = pd.DataFrame(
     np.random.randn(10, 20),
     columns=('col %d' % i for i in range(20)))
