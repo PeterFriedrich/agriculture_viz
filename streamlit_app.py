@@ -7,8 +7,27 @@ import altair as alt
 
 from datetime import time, datetime
 
-# selectbox app flow. User selects colr, app prints color
 
+
+# st.multiselect widget select?
+st.header('st.multiselect')
+
+# weird multibox select widget
+options = st.multiselect(
+    'What are your favorite colors',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red'])
+st.write('You selected:', options)
+
+# selectbox app flow. User selects colr, app prints color
+st.header('st.selectbox')
+
+# click box? dropdown? dropdown
+option = st.selectbox(
+    'What is your favorite color?',
+    ('Blue', 'Red', 'Green'))
+
+st.write('Your Favorite color is', option)
 
 # altair line chart
 st.header('Line Chart')
