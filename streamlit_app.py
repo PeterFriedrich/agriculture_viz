@@ -7,10 +7,23 @@ import altair as alt
 
 from datetime import time, datetime
 
+# selectbox app flow. User selects colr, app prints color
+
+
+# altair line chart
+st.header('Line Chart')
+
+# demo data
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
+
 # slider demo, headers and subheaders.
 st.header('st.slider')
 
-# example 1
+# example 1d
 st.subheader('Slider')
 
 age = st.slider('How old are you?', 0, 130, 25)
