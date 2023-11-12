@@ -7,6 +7,11 @@ import altair as alt
 
 from datetime import time, datetime
 
+# streamlit secrets, st.secrets
+# store api keys, database passwords, etc.
+st.title('st.secrets')
+st.write("The secret phrase is:", st.secrets['message'])
+
 # streamlit themes??
 st.title('Customizing the theme of streamlit apps')
 
