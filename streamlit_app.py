@@ -8,7 +8,13 @@ import altair as alt
 from datetime import time, datetime
 
 # streamlit latex
+st.header('st.latex')
 
+st.latex(r'''
+        a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
+         \sum_{k=0}^{n-1} ar^k =
+         a \left(\frac{r^k{n}}{1-r}\right)
+         ''')
 
 #import ydata_profiling
 #from streamlit_pandas_profiling import st_profile_report
