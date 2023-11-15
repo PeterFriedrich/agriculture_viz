@@ -7,6 +7,71 @@ import altair as alt
 
 from datetime import time, datetime
 
+# streamlit layout
+st.set_page_config(
+    layout="wide",
+    page_title="Hello",
+    page_icon="👋",
+) # hard to see it off
+st.title("How to layout your Streamlit app")
+st.write("# Welcome to Streamlit!")
+st.sidebar.success("Select a demo above.")
+st.markdown("""
+    Streamlit is cool.
+     checkout [streamlit.io](https://streamlit.io)
+    - 
+""")
+
+# everying inside expander goes in the feature.
+with st.expander("About this app"):
+    st.write("This app shows the various ways on how you can layout your Streamlit app.")
+    # cool, can do the html image thing
+    st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
+
+# sidebar features. Text input, selectbox etc.
+st.sidebar.header("Input")
+user_name = st.sidebar.text_input("What is your name?")
+user_emoji = st.sidebar.selectbox("Choose an emoji", ['', '😄', '😆', '😊', '😍', '😴', '😕', '😱'])
+user_food = st.sidebar.selectbox('What is your favorite food?', ['', 'Tom Yum Kung', 'Burrito', 'Lasagna', 'Hamburger', 'Pizza'])
+
+# shows outputs of sidebar inputs
+st.header("Output")
+col1, col2, col3 = st.columns(3)
+
+# the columns means all 3 outputs are side by side
+with col1:
+    if user_name != "":
+        st.write(f"👋 Hello {user_name}!")
+    else:
+        st.write("👈 Please enter your **name**!")
+with col2:
+    if user_emoji != "":
+        st.write(f"{user_emoji} is your favorite **emoji**!")
+    else:
+        st.write("👈 Please choose an **emoji**!")
+with col3:
+    if user_food !="":
+        st.write(f" **{user_food}** is your favorite **food**!")
+    else:
+        st.write("👈 Please choose your favorite **food**!")
+
+
+# finally, file uploader. Default 200 mb limit.
+st.title('st.file_uploader')
+
+st.subheader('Input CSV')
+uploaded_file = st.file_uploader("Choose a file")
+
+if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
+    st.subheader('DataFrame')
+    st.write(df)
+    st.subheader('Descriptive Statistics')
+    st.write(df.describe())
+else:
+    st.info('☝️ Upload a CSV file')
+
+# secrets are weird. Maybe have to reboot the app each time?
 # streamlit secrets, st.secrets
 # store api keys, database passwords, etc.
 st.title('st.secrets')
