@@ -161,3 +161,6 @@ cython_debug/
 
 # streamlit
 /.streamlit/secrets.toml
+
+# keys
+ee-peterfriedrichone-0c699b8f3468.json
