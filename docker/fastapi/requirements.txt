@@ -1,0 +1,2 @@
+# get the exact version
+fastapi[all]
