@@ -1,0 +1,34 @@
+version "3.8"
+
+services:
+    fastapi:
+        build:
+            context: ./docker/fastapi
+            dockerfile: Dockerfile
+        ports:
+            - 8010:8010
+        command: ["uvicorn", "main:app", "--host=0.0.0.0", "--reload"]
+        networks:
+            - firstnetwork
+        # api folder repo, app folder container
+        volumes:
+            - ./api:/app
+            
+    streamlit:
+        build:
+            context: ./docker/streamlit
+            dockerfile: Dockerfile
+        ports:
+            - 8502:8502
+        command: ["streamlit", "run", "streamlit.py", "--server.baseUrlPath", "/app"]
+        networks:
+            - firstnetwork
+        # app folder repo -> app folder container
+        volumes:
+            - ./app:/app
+
+networks:
+    firstnetwork:
+
+     
+                 
